@@ -7,12 +7,40 @@ public class Rectangle {
 	private int height;
 	private boolean selected;
 	
+	public Rectangle() {
+		
+	}
+	
+	public Rectangle(Point upperLeft, int width, int height) {
+		this.upperLeft = upperLeft;
+		this.width = width;
+		this.height = height;
+	}
+	
+	public Rectangle(Point upperLeft, int width, int height, boolean selected) {
+		this(upperLeft, width, height); // poziv prethodno definisanog konstruktora; 
+										// mora biti prva naredba u okviru ove metode!
+		this.selected = selected;
+	}
+	
 	 //Povrsina i obim pravougaonika:
 	public int area() {
 		return width * height;
 	}
 	public int circumference() {
 		return 2*width + 2*height;
+	}
+	
+	public boolean equals(Object obj) {
+		if (obj instanceof Rectangle) {
+			Rectangle pomocni = (Rectangle)obj;
+			if(this.upperLeft.equals(pomocni.upperLeft) && this.width == pomocni.width 
+					&& this.height == pomocni.height)
+				return true;
+			else 
+				return false;
+		}else
+			return false;
 	}
 	
 	//Metode pristupa (GET i SET metode)
@@ -40,6 +68,8 @@ public class Rectangle {
 	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}
-	
+	public String toString() {
+		return "UpperLeft: " + upperLeft + ", width: " + width + ", height: " + height;
+	}
 	
 }
