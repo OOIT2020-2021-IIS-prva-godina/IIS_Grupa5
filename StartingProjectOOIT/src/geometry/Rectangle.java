@@ -43,6 +43,13 @@ public class Rectangle {
 			return false;
 	}
 	
+	public boolean contains(int x, int y) {
+		return (upperLeft.getX() < x && upperLeft.getX() + width > x
+				&& upperLeft.getY() < y && upperLeft.getY() + height > y);
+	}
+	public boolean contains(Point p) {
+		return this.contains(p.getX(), p.getY());
+	}
 	//Metode pristupa (GET i SET metode)
 	public Point getUpperLeft() {
 		return upperLeft;

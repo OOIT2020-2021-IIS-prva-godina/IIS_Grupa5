@@ -5,6 +5,7 @@ public class Circle {
 	private Point center;
 	private int radius;
 	private boolean selected;
+// protected boolean selected;
 	
 	public Circle() {
 		
@@ -39,7 +40,12 @@ public class Circle {
 		}else 
 			return false;
 	}
-	
+	public boolean contains(int x, int y) {
+		return center.distance(x,y) <= radius;
+	}
+	public boolean contains(Point p) {
+		return this.contains(p.getX(), p.getY());
+	}
 	//Metode pristupa:
 	public Point getCenter() {
 		return center;

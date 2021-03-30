@@ -37,6 +37,9 @@ public class Line {
 			return false;
 	}
 	
+	public boolean contains(int x,int y) {
+		return startPoint.distance(x, y) + endPoint.distance(x, y) - length() <= 2; 
+	}
 	//Metode pristupa (GET i SET metode):
 	public Point getStartPoint() {
 		return startPoint;

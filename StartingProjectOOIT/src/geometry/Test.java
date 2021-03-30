@@ -147,6 +147,18 @@ public class Test {
 		r3.setHeight(80);
 		System.out.println("Rectangle r3: " + r3);
 		System.out.println(r2.equals(r3)); 
+		
+		System.out.println("\nVezbe 5\n");
+		Point p3 = new Point(30,30);
+		Rectangle r4 = new Rectangle(new Point(20,20),40,20);
+		System.out.println(r4.contains(p3));
+		System.out.println(r4.contains(10,10));
+		
+		Donut d1  = new Donut(p3,50,20);
+		System.out.println(d1);
+		System.out.println(d1.contains(p3));
+		System.out.println(d1.contains(30,50));
+		
 	}
 
 }
