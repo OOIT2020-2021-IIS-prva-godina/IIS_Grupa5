@@ -1,11 +1,12 @@
 package geometry;
 
-public class Circle {
+import java.awt.Graphics;
+
+public class Circle extends Shape {
 
 	private Point center;
 	private int radius;
-	private boolean selected;
-// protected boolean selected;
+
 	
 	public Circle() {
 		
@@ -61,13 +62,15 @@ public class Circle {
 		this.radius = radius;
 	}
 	
-	public boolean isSelected() {
-		return selected;
-	}
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-	}
+
 	public String toString() {
 		return "Center: " + center + " , radius: " + radius; // Center: (xCenter, yCenter), radius: <radius>
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		//metodi se prosleđuju x i y koordinate gornje leve tacke pravougaonika koji opisuje krug koji crtamo
+		g.drawOval(center.getX() - radius, center.getY() - radius, 2*radius, 2*radius);
+		
 	}
 }
