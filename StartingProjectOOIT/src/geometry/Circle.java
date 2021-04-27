@@ -1,5 +1,6 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Circle extends Shape {
@@ -58,7 +59,9 @@ public class Circle extends Shape {
 	public int getRadius() {
 		return radius;
 	}
-	public void setRadius(int radius) {
+	public void setRadius(int radius) throws Exception{
+		if(radius < 0)
+			throw new Exception("Radius ne moze biti manji od 0");
 		this.radius = radius;
 	}
 	
@@ -69,8 +72,19 @@ public class Circle extends Shape {
 
 	@Override
 	public void draw(Graphics g) {
+		g.setColor(Color.BLACK);
 		//metodi se prosleđuju x i y koordinate gornje leve tacke pravougaonika koji opisuje krug koji crtamo
 		g.drawOval(center.getX() - radius, center.getY() - radius, 2*radius, 2*radius);
+		
+		if(selected) {
+			g.setColor(Color.BLUE);
+			g.drawRect(center.getX()-2, center.getY() - 2, 4, 4);	
+			g.drawRect(center.getX() - radius -2, center.getY() - 2, 4, 4);
+			g.drawRect(center.getX() + radius -2, center.getY() - 2, 4, 4);
+			g.drawRect(center.getX()-2, center.getY() - radius - 2, 4, 4);	
+			g.drawRect(center.getX()-2, center.getY() + radius - 2, 4, 4);	
+			
+		}
 		
 	}
 
